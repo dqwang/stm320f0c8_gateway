@@ -42,3 +42,10 @@
 .\objects\lock.o: ..\User\gateway\CARD.h
 .\objects\lock.o: ..\User\gateway\DISP.h
 .\objects\lock.o: ..\User\gateway\MOTO.h
+.\objects\lock.o: ..\User\gateway\lora.h
+.\objects\lock.o: ..\User\SX1276\rf.h
+.\objects\lock.o: ..\User\main.h
+.\objects\lock.o: ..\User\SX1276\SX1276_App.h
+.\objects\lock.o: ..\User\SX1276\SX1276.h
+.\objects\lock.o: ..\User\SX1276\SX1276_LoRa.h
+.\objects\lock.o: ..\User\SX1276\SX1276_Hal.h

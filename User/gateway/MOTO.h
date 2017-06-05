@@ -11,6 +11,8 @@ void MOTO_Stop(void);
 void MOTO_INIT(void);
 void MOTO_lp_INIT(void);
 
+void led_init(void);
+
 
 #endif 		/* _MOTO_H_ */
 

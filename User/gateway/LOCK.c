@@ -129,12 +129,14 @@ else
 void LOCK_INIT(void)
 {
 	SYS_INIT();
+#if 0
 	MOTO_INIT();
 	KEYBD_INIT();
 	FP_INIT();
 	TSM12_Init();
 	VOICE_INIT();
 	CARD_INIT();
+#endif
 
 }
 void KeyBD_State_Rst(void)

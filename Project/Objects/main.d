@@ -42,3 +42,10 @@
 .\objects\main.o: ..\User\gateway\CARD.h
 .\objects\main.o: ..\User\gateway\DISP.h
 .\objects\main.o: ..\User\gateway\MOTO.h
+.\objects\main.o: ..\User\gateway\lora.h
+.\objects\main.o: ..\User\SX1276\rf.h
+.\objects\main.o: ..\User\main.h
+.\objects\main.o: ..\User\SX1276\SX1276_App.h
+.\objects\main.o: ..\User\SX1276\SX1276.h
+.\objects\main.o: ..\User\SX1276\SX1276_LoRa.h
+.\objects\main.o: ..\User\SX1276\SX1276_Hal.h

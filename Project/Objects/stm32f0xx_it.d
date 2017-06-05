@@ -43,3 +43,10 @@
 .\objects\stm32f0xx_it.o: ..\User\gateway\CARD.h
 .\objects\stm32f0xx_it.o: ..\User\gateway\DISP.h
 .\objects\stm32f0xx_it.o: ..\User\gateway\MOTO.h
+.\objects\stm32f0xx_it.o: ..\User\gateway\lora.h
+.\objects\stm32f0xx_it.o: ..\User\SX1276\rf.h
+.\objects\stm32f0xx_it.o: ..\User\main.h
+.\objects\stm32f0xx_it.o: ..\User\SX1276\SX1276_App.h
+.\objects\stm32f0xx_it.o: ..\User\SX1276\SX1276.h
+.\objects\stm32f0xx_it.o: ..\User\SX1276\SX1276_LoRa.h
+.\objects\stm32f0xx_it.o: ..\User\SX1276\SX1276_Hal.h

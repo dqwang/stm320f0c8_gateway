@@ -189,6 +189,7 @@ void EXTI0_1_IRQHandler(void)
 {  
 
 }
+#if 0
 void EXTI4_15_IRQHandler(void)
 {  
 
@@ -248,6 +249,7 @@ void EXTI4_15_IRQHandler(void)
 
 }
 
+#endif
 /******************************************************************************/
 /*                 STM32F0xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
@@ -270,3 +272,45 @@ void EXTI4_15_IRQHandler(void)
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+void EXTI4_15_IRQHandler(void)
+{  
+    if(EXTI_GetITStatus(EXTI_Line11)!=RESET)  
+    {  
+				
+	 if(_rf.flag == RF_CADDETECTED)
+	 {
+		 RF_RxFixiPacket(_rf.packBuf, 2);
+		 //if(_rf.packBuf[0] == RF_WAKE_CODE && (_rf.packBuf[1] == _addr[0] || _rf.packBuf[1] == RF_BROADCAST_ADDR))
+			 if(_rf.packBuf[1] == RF_BROADCAST_ADDR)
+		 {
+			 _rf.flag = RF_WAKEUP;
+			 _rf.sleep_cnt = 0;
+			 memset(_rf.packBuf, 0xaa, RF_PACK_SIZE);
+			 _rf.packBuf[0] = RF_PACK_SIZE;
+			 _rf.packBuf[1] = 0xff;
+			 _rf.packBuf[2] = 1;
+			 _rf.packBuf[3] = 1;
+			 RF_SendPacket(_rf.packBuf,_rf.packBuf[0]);
+			 delay_ms(1);
+			 _rf.rcvLen = 0;
+			 RF_RXmode(RF_PACK_SIZE);
+		 }
+		 else
+		 {
+			 RF_WORInit();
+			 RF_Sleepmode();
+			 _rf.flag = RF_SLEEP;
+			 _rf.cad_cnt = 0;
+		 }
+	 }
+	 else 
+	 {
+		 RF_RxFixiPacket(Lora_RcvDat, RF_PACK_SIZE);					 //接收数据包首两字节（包长度、目的地址）
+		 Lora_Comm_Flag = 1;
+		 delay_us(5);	 
+		 RF_RXmode(RF_PACK_SIZE);
+	 }	
+    }  	
+EXTI_ClearFlag(EXTI_Line11); 	
+}

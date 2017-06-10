@@ -20,14 +20,15 @@ int main(void)
 	__enable_irq();
 	Init_RF();
 	
-	Lora_Sendtest(0,6);
+	//Lora_Sendtest(0,6);
 	
 	while (1)
 	{
-	#if 1
+	#if 0
 	//KEYBD_MAIN();
 	//LOCK_MAIN();
 	//MCU_SLEEP();
+ 
 	//CARD_MAIN();
 	#else
 
@@ -35,6 +36,7 @@ int main(void)
 	//VOICE_test(0);
 	//test_voice_ok_and_error();
 	//test_read_card_id();
+	test_lora_gateway_send();
 	#endif
 	}
 }

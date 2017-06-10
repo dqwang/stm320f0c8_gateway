@@ -1,0 +1,6 @@
+--cpu Cortex-M0 -g --apcs=interwork 
+-I Z:\sihan\stm\stm320f0c8_gateway\Project\RTE
+-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0
+-I C:\Keil_v5\ARM\CMSIS\Include
+--pd "STM32F030x8 SETA 1"
+--list .\listings\startup_stm32f030.lst --xref -o .\objects\startup_stm32f030.o --depend .\objects\startup_stm32f030.d "..\User\startup_stm32f030.s"

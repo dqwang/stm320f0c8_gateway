@@ -107,7 +107,7 @@ UINT16  RF_PackRcv(UINT8 * packbuf, UINT8 * rfbuf)
 
 UINT8 Lora_Sendtest(UINT8 *sDat,UINT16 sLen)
 {
-	UINT8 sbuf[20]={0xAA,0xBB,0x01,0x00,0x01,0x09,0x08,0x07,0x06,0x05,0x04,0x17,0x55};
+	UINT8 sbuf[20]={0xAA,0xBB,0xcc,0xdd,0xee,0xff};
 	//UINT16 crc;
 
 //	sbuf[3] = (UINT8)(Lora_Mod_ADRS>>8);
@@ -116,9 +116,15 @@ UINT8 Lora_Sendtest(UINT8 *sDat,UINT16 sLen)
 //	CalCRC(sbuf,sLen+5,&crc);
 //	sbuf[5+sLen] = (UINT8)crc;
 //	sbuf[5+sLen+1] = (UINT8)(crc>>8);
-	RF_Send(sbuf,sLen+7);
+	RF_Send(sbuf,6);
 
   return 0;
+}
+
+void test_lora_gateway_send(void)
+{
+	Lora_Sendtest(0,6);
+	delay_ms(10*1000);
 }
 
 

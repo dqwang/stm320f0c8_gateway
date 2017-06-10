@@ -22,78 +22,78 @@
 
 //void Init_LoraIO_CS_LP(void)//PB5
 //{	
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOB
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;       
-//    GPIO_Init(GPIOB, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_5;
+//    g.GPIO_Mode = GPIO_Mode_IPU;       
+//    GPIO_Init(GPIOB, &g);
 //}
 //void Init_LoraIO_RST_LP(void)//PB1
 //{	
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOB
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; 
-//    GPIO_Init(GPIOB, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_1;
+//    g.GPIO_Mode = GPIO_Mode_IPU; 
+//    GPIO_Init(GPIOB, &g);
 //}
 //void Init_LoraIO_DIO1_LP(void)//PA12  中断
 //{
 
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOA
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;	
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;       
-//    GPIO_Init(GPIOA, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_12;	
+//    g.GPIO_Mode = GPIO_Mode_IPU;       
+//    GPIO_Init(GPIOA, &g);
 //}
 //void Init_LoraIO_DIO2_LP(void)//PA12  中断
 //{
 
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOA
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;	
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;       
-//    GPIO_Init(GPIOA, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_11;	
+//    g.GPIO_Mode = GPIO_Mode_IPU;       
+//    GPIO_Init(GPIOA, &g);
 //}
 
 //void Init_LoraIO_DIO3_LP(void)//PA8
 //{	  
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOA
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;	
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;       
-//    GPIO_Init(GPIOA, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_8;	
+//    g.GPIO_Mode = GPIO_Mode_IPU;       
+//    GPIO_Init(GPIOA, &g);
 //}
 
 //void Init_LoraIO_DIO0_LP(void)//PB12  中断
 //{  
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOB
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;	
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;       
-//    GPIO_Init(GPIOB, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_12;	
+//    g.GPIO_Mode = GPIO_Mode_IPU;       
+//    GPIO_Init(GPIOB, &g);
 //}
 
 //void Init_LoraIO_SPI_LP(void)//PB13-14-15
 //{  
-//    GPIO_InitTypeDef GPIO_InitStructure;    
+//    GPIO_InitTypeDef g;    
 //    //GPIOB
 //    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE);
 
-//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;	
-//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;       
-//    GPIO_Init(GPIOB, &GPIO_InitStructure);
+//    g.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;	
+//    g.GPIO_Mode = GPIO_Mode_IPU;       
+//    GPIO_Init(GPIOB, &g);
 //}
 
 //void Init_LoraIO_LP(void)//
@@ -107,73 +107,114 @@
 //	//Init_LoraIO_SPI_LP();
 //}
 
-void Init_LoraIO_PW(void)//PC13
+
+
+void init_lora1_cs(void)//PA15
 {	
-    GPIO_InitTypeDef GPIO_InitStructure;    
-    //GPIOC
-	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOC, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;                 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT; 
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_InitTypeDef g;    
+	
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);					  											 
+	g.GPIO_Pin = GPIO_Pin_15;                 
+	g.GPIO_Mode = GPIO_Mode_OUT; 
+	g.GPIO_OType = GPIO_OType_PP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &g);
 }
 
-
-void Init_LoraIO_CS(void)//RF1_CS PA15
+void init_lora2_cs(void)//PF6
 {	
-    GPIO_InitTypeDef GPIO_InitStructure;    
-    //GPIOF
-	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOA, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;                 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT; 
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
-}
-
-void Init_LoraIO_CS2(void)//PF6
-{	
-    GPIO_InitTypeDef GPIO_InitStructure;    
-    //GPIOF
+    GPIO_InitTypeDef g;    
+    
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOF, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;                 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT; 
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOF, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_6;                 
+	g.GPIO_Mode = GPIO_Mode_OUT; 
+	g.GPIO_OType = GPIO_OType_PP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOF, &g);
 
-	RF2_CS_H;
+	set_lora2_cs();
+}
+
+void set_lora1_cs(void)
+{
+	GPIO_SetBits(GPIOA,GPIO_Pin_15);
+}
+
+void reset_lora1_cs(void)
+{
+	GPIO_ResetBits(GPIOA,GPIO_Pin_15);
+}
+
+void set_lora2_cs(void)
+{
+	GPIO_SetBits(GPIOF,GPIO_Pin_6);
+}
+
+void reset_lora2_cs(void)
+{
+	GPIO_ResetBits(GPIOF,GPIO_Pin_6);
 }
 
 
-
-
-void Init_LoraIO_RST(void)//PA11
+void init_lora1_rst(void)//PA11
 {	
-    GPIO_InitTypeDef GPIO_InitStructure;    
-    //GPIOA
-	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOA, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;              
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT; 
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_InitTypeDef g;    
 
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);					  											 
+	g.GPIO_Pin = GPIO_Pin_11;              
+	g.GPIO_Mode = GPIO_Mode_OUT; 
+	g.GPIO_OType = GPIO_OType_PP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &g);
 }
+
+void init_lora2_rst(void)//PA12
+{	
+	GPIO_InitTypeDef g;    
+
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);					  											 
+	g.GPIO_Pin = GPIO_Pin_12;              
+	g.GPIO_Mode = GPIO_Mode_OUT; 
+	g.GPIO_OType = GPIO_OType_PP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &g);
+}
+
+
+void set_lora1_rst(void)
+{
+	GPIO_SetBits(GPIOA,GPIO_Pin_11);
+}
+
+void reset_lora1_rst(void)
+{
+	GPIO_ResetBits(GPIOA,GPIO_Pin_11);
+}
+
+void set_lora2_rst(void)
+{
+	GPIO_SetBits(GPIOA,GPIO_Pin_12);
+}
+
+void reset_lora2_rst(void)
+{
+	GPIO_ResetBits(GPIOA,GPIO_Pin_12);
+}
+
+
 
 void Init_LoraIO_DIO1(void)//PB10
 {
 //    NVIC_InitTypeDef NVIC_InitStructure;  
 //    EXTI_InitTypeDef EXTI_InitStructure;  
-    GPIO_InitTypeDef GPIO_InitStructure;    
+    GPIO_InitTypeDef g;    
     //GPIOA
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;                 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN; 
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_10;                 
+	g.GPIO_Mode = GPIO_Mode_IN; 
+	g.GPIO_PuPd = GPIO_PuPd_UP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &g);
 
 
 //	EXTI_ClearITPendingBit(EXTI_Line12);  
@@ -198,14 +239,14 @@ void Init_LoraIO_DIO1_EXTIoff(void)//PB10  关中断
 {
 //    NVIC_InitTypeDef NVIC_InitStructure;  
 //    EXTI_InitTypeDef EXTI_InitStructure;  
-    GPIO_InitTypeDef GPIO_InitStructure;    
+    GPIO_InitTypeDef g;    
     //GPIOA
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;                 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN; 
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_10;                 
+	g.GPIO_Mode = GPIO_Mode_IN; 
+	g.GPIO_PuPd = GPIO_PuPd_UP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &g);
 
 
 //	EXTI_ClearITPendingBit(EXTI_Line12);  
@@ -227,17 +268,17 @@ void Init_LoraIO_DIO1_EXTIoff(void)//PB10  关中断
 
 void Init_LoraIO_DIO3(void)//PB2
 {
-	GPIO_InitTypeDef GPIO_InitStructure; //GPIO 定义
+	GPIO_InitTypeDef g; //GPIO 定义
 	EXTI_InitTypeDef EXTI_InitStructure; //外部中断定义
 	NVIC_InitTypeDef NVIC_InitStructure; //嵌套中断定义
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);					  											 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;                 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN; 
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_2;                 
+	g.GPIO_Mode = GPIO_Mode_IN; 
+	g.GPIO_PuPd = GPIO_PuPd_UP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &g);
 
 	#if 0
 
@@ -263,17 +304,17 @@ void Init_LoraIO_DIO3(void)//PB2
 
 void Init_LoraIO_DIO3_EXTIoff(void)//PB2
 {
-	GPIO_InitTypeDef GPIO_InitStructure; //GPIO 定义
+	GPIO_InitTypeDef g; //GPIO 定义
 	EXTI_InitTypeDef EXTI_InitStructure; //外部中断定义
 	NVIC_InitTypeDef NVIC_InitStructure; //嵌套中断定义
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);																 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;				  
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN; 
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_2;				  
+	g.GPIO_Mode = GPIO_Mode_IN; 
+	g.GPIO_PuPd = GPIO_PuPd_UP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &g);
 
 
 #if 0
@@ -299,17 +340,17 @@ void Init_LoraIO_DIO3_EXTIoff(void)//PB2
 
 void Init_LoraIO_DIO0(void)//PB11  中断
 {
-	GPIO_InitTypeDef GPIO_InitStructure; //GPIO 定义
+	GPIO_InitTypeDef g; //GPIO 定义
 	EXTI_InitTypeDef EXTI_InitStructure; //外部中断定义
 	NVIC_InitTypeDef NVIC_InitStructure; //嵌套中断定义
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);																 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;				  
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN; 
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_11;				  
+	g.GPIO_Mode = GPIO_Mode_IN; 
+	g.GPIO_PuPd = GPIO_PuPd_UP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &g);
 
 	//将EXTI0指向PB11
 	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB,EXTI_PinSource11);  
@@ -332,17 +373,17 @@ void Init_LoraIO_DIO0(void)//PB11  中断
 
 void Init_LoraIO_DIO0_EXTIoff(void)//PB11  中断
 {
-	GPIO_InitTypeDef GPIO_InitStructure; //GPIO 定义
+	GPIO_InitTypeDef g; //GPIO 定义
 	EXTI_InitTypeDef EXTI_InitStructure; //外部中断定义
 	NVIC_InitTypeDef NVIC_InitStructure; //嵌套中断定义
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);																 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;				  
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN; 
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	g.GPIO_Pin = GPIO_Pin_11;				  
+	g.GPIO_Mode = GPIO_Mode_IN; 
+	g.GPIO_PuPd = GPIO_PuPd_UP;
+	g.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &g);
 
 	//将EXTI0指向PB11  
 	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB,EXTI_PinSource11);  
@@ -364,42 +405,15 @@ void Init_LoraIO_DIO0_EXTIoff(void)//PB11  中断
 
 void SX1276InitIo( void )
 {
-    //PA_TX_DIR = 1;           //PA_TX 作为输出
-    //PA_RX_DIR = 1;           //PA_RX 作为输出
-    //PA_RX_OUT = 0;           //PA_RX 初始化输出为0
-    //PA_TX_OUT = 1;           //PA_TX 初始化输出为1
- //   SXRESET_SET = 1;
-
-    //无线片选脚的配置
-//    PB_ODR_ODR2 = 1;    //输出高电平
-//    PB_DDR_DDR2 = 1;    //输出
-//    PB_CR1_C12 = 1;     //推挽
-//    PB_CR2_C22 = 0;     //2MHz
-//    
-//    PB_DDR_DDR0 = 0;        //输入
-//    PB_CR1_C10 = 1;         //上拉
-//    EXTI_CR1_P0IS = 1;      //上升沿触发
-//    ITC_SPR3_VECT8SPR = 0;  //EXTI0_vector降低一级优先级（为了保证PC5能进中断）（DIO3和DIO1中断同时发生，需要保证DIO1的优先级更高）
-//  
-//    PC_DDR_DDR5 = 0;
-//    PC_CR1_C15 = 1;
-//    EXTI_CR2_P5IS = 1;
-//    
-//    PC_DDR_DDR6 = 0;
-//    PC_CR1_C16 = 1;
-//    EXTI_CR2_P6IS = 1;
-
-	Init_LoraIO_PW();
-
-	Init_LoraIO_CS();
-	Init_LoraIO_CS2();
+ 
+	init_lora1_cs();
+	init_lora2_cs();
 	Init_LoraIO_DIO1();
 	Init_LoraIO_DIO3();
 	Init_LoraIO_DIO0();
 
-	Init_LoraIO_RST();
+	init_lora1_rst();
 
-	//RF_PW_H;
 }
 
 
@@ -415,7 +429,7 @@ void SX1276SPISetup(void)
 //    SPI_NSS_DIR = 1;
 //    SPI_NSS_OUT = 1;         // /CS disable
     //常态为LOW   第一个变化沿采样
-    RF_CS_H;
+    set_lora1_cs();
 }
 ////////////////////////////////////////////////////////////////////////////////
 // 功能描述 : RF   复位
@@ -423,19 +437,13 @@ void SX1276SPISetup(void)
 // 返回参数 : 无
 // 说明     :
 ////////////////////////////////////////////////////////////////////////////////
+
 void SX1276Reset(void)
 {
-//    SXRESET_SET = 1;       //硬件复位IO口方向做输出
-//    SXRESET_OUT = 1;//0;       //硬件复位IO口输出0
-//    delay_ms(100);           //延时
-//    SXRESET_OUT = 0;//1;       //输出为1
-//    delay_ms(20);
-
-	RF_RST_L;
+	reset_lora1_rst();
 	delay_ms(100);  
-	RF_RST_H;
+	set_lora1_rst();
 	delay_ms(20); 	
-
 }
 ////////////////////////////////////////////////////////////////////////////////
 // 功能描述 : RF  向寄存器地址连续发送数据
@@ -448,7 +456,7 @@ void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
     uint8_t i;  
 
     //SPI_NSS_OUT = 0;
-    RF_CS_L;
+    reset_lora1_cs();
     
      SPI_SendData(addr | 0x80);
     for( i = 0; i < size; i++ )
@@ -456,7 +464,7 @@ void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 
     //SPI_NSS_OUT = 1;
     delay_us(50);
-    RF_CS_H;
+    set_lora1_cs();
 }
 ////////////////////////////////////////////////////////////////////////////////
 // 功能描述 : RF  向寄存器地址连续读数据
@@ -469,7 +477,7 @@ void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
     uint8_t i;
     
     //SPI_NSS_OUT = 0;
-    RF_CS_L;
+    reset_lora1_cs();
     
     SPI_SendData(addr & 0x7F);
     for( i = 0; i < size; i++ )
@@ -477,7 +485,7 @@ void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 
     //SPI_NSS_OUT = 1;
     delay_us(50);
-    RF_CS_H;
+    set_lora1_cs();
 }
 ////////////////////////////////////////////////////////////////////////////////
 // 功能描述 : RF  向寄存器地址写1字节数据

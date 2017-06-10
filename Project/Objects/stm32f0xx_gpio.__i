@@ -1,0 +1,6 @@
+-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\Library\CMSIS -I..\Library\STM32F0xx_StdPeriph_Driver\inc -I..\Library\STM32F0xx_StdPeriph_Driver\src -I..\User -I..\Library\CMSIS\Include -I..\Library\CMSIS\Device\ST\STM32F0xx\Include -I..\User\gateway -I..\User\SX1276
+-I Z:\sihan\stm\stm320f0c8_gateway\Project\RTE
+-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\1.5.0
+-I C:\Keil_v5\ARM\CMSIS\Include
+-DSTM32F030x8 -DUSE_STDPERIPH_DRIVER -DSTM32F0XX
+-o .\objects\stm32f0xx_gpio.o --omf_browse .\objects\stm32f0xx_gpio.crf --depend .\objects\stm32f0xx_gpio.d "..\Library\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_gpio.c"

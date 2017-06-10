@@ -62,6 +62,7 @@ U16     RF_PackRcv(U8 * packbuf, U8 * rfbuf);
 void    RF_Send(U8 * sdata, U16 sdatalen);
 
 UINT8 Lora_Sendtest(UINT8 *sDat,UINT16 sLen);
+void test_lora_gateway_send(void);
 
 
 #endif
